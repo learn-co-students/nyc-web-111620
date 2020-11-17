@@ -29,18 +29,63 @@ ___
 
 ### Questions!
 - Yours for me!
+++ Jeff!! 
+- When do we need to use initialize inside of the class? And initialize vs attr_accessors
+- How to attr_accessors work and fit logically into the class? (vs getters and setters)
+- Cam.. check in at variables & methods. 
+
 - Mine for you!
+- What things in Ruby are objects? 
+    - hashes, arrays, strings, classes, integers, booleans, floats 
+- How do we *know* those things are objects?
+    - you can perform methods on them!!!! / call methods on the object
+    - you can instantiate a new instance of an object
+    - methods & attributes 
+    - under the hood someplace (object ids and locations)
+
+- What objects does Instagram need to know about? 
+    - Posts
+    - Likes
+    - Users (security preferences?)
+    - Location
+    - Comments
+    - Followers
+    - Stories 
+    - Messages 
+    - Reels
+    - Ads
+
+- TL;DR Point of OOP is to create blueprints that standardize what stuff looks ike 
+
 
 ### Agenda
 - Teach our app what a `User` is 
     - A `User` has a `name` 
     - A `User` has an `age`
     - A `User` has `bio`
-    - A `User` can change their `name` and `bio` 
     - A `User` should be able to say it's `name`, `age`, and `bio`
+    - A `User` can change their `name` and `bio` 
     - A `User` should not be able to change their `age` 
 - A `User` can sign in, view, and edit their personal information
 
+
+## Review
+- When do we need an initialize method? 
+    - When you want to *create* an instance with specified attributes / information 
+    - If you are just going to use `.new`, no args, you don't need the initialize 
+- When should you use the attr_accessor instead of just one of the other two? 
+    - When you want to *both* read and write 
+    - DO NOT write the getter and setter methods too 
+- What's the point / purpose of the instance variables? 
+    - So you can use / remember the instance info outside of initialize scope 
+- What if I want to make it *optional* to create a new instance with some info (sayyyy a catchphrase)
+    - default arg in initialize!!!!
+    - example in user.rb is bio
+- How do I get access to the class from run.rb?
+    - require_relative!!!!
+- How is require_relative different from require?
+    - require is looking a gem
+    - require_relative is looking for a local file via relative path (from current file location)
 
 ## ICEBOX
 
