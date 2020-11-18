@@ -94,20 +94,44 @@ ___
 ## Lecture 2 :: More OOP
 
 ### General Reflections from OO Practice Pt 1
-
+- Use the attr macros instead of writing the getters & setters yourself!
+- At least 1 test per deliverable is advisable! use `p` instead of `puts` to see more info about instances.
+- No one is duplicating the readers & writers 🔥
+- Overall excellent job 🎉
+- No new repl.it for new deliverables; just build on existing code. 
 
 ### Questions!!!
-
+- NoMethodError(+=) for operator 
+    - happiness += ... is acutally happiness = happiness + num
+    - Person#happiness and Person#happiness=
+    - *return to at self*
+- *self*!!!
+    - how to determine what self is? what type of method are you inside of? 
+- integer one 1; string one "1"
+- Can you go over usage cases for instance variables vs self?
+- DQ 4 **Icebox ??** 
+- Which instance variables should be in the initialize? ++++
+    - Let's build animal class later 
+- If multiple parameters in the initialize method are integers, would they sum themselves for any reason? Silly question, but it kept happening in the cash register lab. It was super confusing **Icebox ??**
+- Class variables v constants
 
 ### Recap
-
+- Instances are Objects... they have attributes and methods we use to act on them 
+    - Instance variables... @variable to remember information
+    - .new / initialize method 
+    - attr macros in order to access and change instance variable info 
+- Classes themselves are also Objects... so it can have its own attributes and methods
+    - Class variables... @@variable.. typically just @@all 
+    - Change our initialize... we need to << self into @@all! When we create a new instance, add it to the array
+    - no macros for @@all!! Define a class method `def self.all`
+    - `private` methods come last!!! Cause otherwise you will accidentally make stuff private. Anything under `private` will be private.
 
 ### Agenda!
 - Class variables & methods
 - `self`
 - private methods
 
-- A `User` should be able to log in
+- A `User` should be able to log in **time permitting**
 - `User.all` should return a list of all user instances 
 - A `User` should be able to view their profile
     - `User#view_profile` should print the user's information
@@ -115,6 +139,22 @@ ___
     - `User#views` should return the number of times a user's profile has been viewed
     - Everytime a user's profile is viewed a message should puts to the screen saying "here is your profile"
 
+@name = name 
+@age = age 
+@hair_color = "red"
+@bio = bio 
+@birthdate = nil 
+@homeState = ""??
+@views = 0 
+
+`#` denotes instance method, `.` denotes class method 
+
+`User#celebrate_birthday` will print "happy birthday" and increase the age 
+`User.find_by_state(state)` will return a list of all users from that state 
+`User.of_driving_age` will return a list of all users 16+ age
+
+`User.of_drinking_age` will return a list of all users 21+ age
+`User.most_popular` will return a list of all users with 10+ views
 
 
 ___ 
