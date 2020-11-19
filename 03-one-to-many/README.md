@@ -187,6 +187,8 @@ ___
 
 ### Deliverables
 ##### [User -< Pet]()
+<img src="pics/diagrams.png" alt="ERD example" height="300px">
+
 A User *has many* Pets
     - DOES NOT hold a reference (or array) of associated instances
     - DOES have a method to get associated instances *from the associated class*
