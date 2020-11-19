@@ -79,7 +79,7 @@ A conceptual representaion of a domain; Used to document a software system using
 </p>
 <p>
 <details>
-<summary>Relationships</summary>
+<summary>Relationships / Associations</summary>
 <pre>
 - one to many
 - many to many
