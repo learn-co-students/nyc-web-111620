@@ -1,4 +1,4 @@
-# One To Many Relationships
+# One To Many Relationships / Associations 
 
 <!-- ![alt text](pics/many-animals.jpg "Animals") -->
 <img src="pics/many-animals.jpg" alt="Animals" height="500px">
@@ -8,24 +8,38 @@
 1. Implement one object to many objects relationship
     * one object _has many_ objects
     * one object _belongs to_ another object
-2. Demonstrate the concept of an Entity Relationship Diagram
-3. Demonstrate Single Source of Truth
-4. Infer type of method (class or instance) through naming conventions
+2. Demonstrate the concept of an Entity Relationship Diagram (ERD)
+3. Demonstrate Single Source of Truth (SSOT) -- things should only be represented in *ONE* place
+4. Infer type of method (class or instance) through naming conventions `.` , `#` 
 
 ___
 
+## Questions 
+- ERD Diagram... rel'n btwn
+- self is still funny ++++
+- How does an instance of a class access class variable information ( use the class method )
+    - instead of using @@all use `User.all` for example 
+- Review @@all 
+- Class constants... TL;DR don't use them. Use class variables. **End?**
+- One to many today... tomorrow we do many-to-many
+    - under the hood how does the belongs to/has many work
+- *Ori*... Can you go over if it’s best practice (or not) to use local variables in class and instance methods and why?
+    - *Conor* when is an argument necessary for a method? 
+- Rules and patterns for our associations!!  
 
-- Quick Review of OOP
-    - we created classes
-    - we created instances of classes using `initialize`
-    - we wrote instance and class methods
-    - we created instance and class variables
-    - we used attr_macros for getters and setters
-        - `attr_reader` - getter
-        - `attr_writer` - setter
-        - `attr_accessor` - getter/setter
-    - we used `self` in class and instance methods & saw that `self` is whoever calls the method
-    - we wrote private methods & saw they can only be called by other methods within the class
+___
+
+## Quick Review of OOP
+- we created classes
+- we created instances of classes using `initialize`
+- we wrote instance and class methods
+- we created instance and class variables
+- we used attr_macros for getters and setters
+    - `attr_reader` - getter
+    - `attr_writer` - setter
+    - `attr_accessor` - getter/setter
+- we used `self` in class and instance methods & saw that `self` is whoever calls the method
+- we wrote private methods & saw they can only be called by other methods within the class
 
 <!-- ![alt text](pics/happypeople.jpg "Happy jumping people") -->
 <img src="pics/happypeople.jpg" alt="Happy jumping people" height="300px">
@@ -173,6 +187,15 @@ ___
 
 ### Deliverables
 ##### [User -< Pet]()
+A User *has many* Pets
+
+A Pet *belongs to* User 
+    - hold the reference (wear the collar) 
+    - *often* it will be instantiated with the reference 
+        - ie when I create a Pet, I will create it holding the info for its user 
+        - it'll have an *instance variable* to hold & remember which User it belongs to 
+        - *since its an instance variable of the pet* we can gain access using our attr_macros
+
 
 * Create a User class. The class should have these methods:
     - `User#initialize` takes a name, age, bio, & home_state
@@ -193,6 +216,10 @@ ___
     - `Pet.all` returns all the pets created
     - `Pet#best_friend_name` returns the name of the pet's owner
     - `Pet.all_species` prints a unique list of all the represented species
+
+1. Set up Pet's initialize. Should be initialized with name, species and sound
+2. Set up Pet's readers and writers. Can change sound and name, cannot change species
+3. Set up `Pet.all` 
 
 <br>
 <br>
