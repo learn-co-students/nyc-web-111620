@@ -188,6 +188,10 @@ ___
 ### Deliverables
 ##### [User -< Pet]()
 A User *has many* Pets
+    - DOES NOT hold a reference (or array) of associated instances
+    - DOES have a method to get associated instances *from the associated class*
+    - create User method that will get associated Pet instances from `Pet.all`
+    - *belongs_to* holds our SSOT for all things about the relationship
 
 A Pet *belongs to* User 
     - hold the reference (wear the collar) 

@@ -17,13 +17,15 @@ mojo = Pet.new("Mojo", "cat", "meeeeoooowww", caryn)
 turbo = Pet.new("turbo", "dog", "woof", jason) # need to associate the whoooole instance, not a string / piece of data 
 nameless = Pet.new("nameless", "cat", "grumble grumble")
 
+# caryn.pets [mojo]
+# jason.pets [turbo]
+# jason adopts mojo
+# jason adopts nameless 
 
 animals = [ 
-    {name: "Mojo", species: "cat", sound: "meeeeooooooowwwwww"}, 
     {name: "Mickey", species: "dog", sound: "arf"},
     {name: "Skip", species: "dog", sound: "woof"},
     {name: "Bella", species: "dog", sound: "ruff"},
-    {name: 'turbo', species: 'dog', sound: 'woof'},
     {name: 'Grizz', species:  'bear', sound: 'Grrrr'},
     {name: "Sniffy", species: "mouse", sound: "sniff sniff"},
     {name: "Nugget", species: "dog", sound: "woo"},
@@ -34,7 +36,7 @@ animals = [
 ]
 
 
-# result = animals.each { |animal| Pet.new(animal[:name], animal[:species], animal[:sound])}
+result = animals.each { |animal| Pet.new(animal[:name], animal[:species], animal[:sound])}
 # do this with each, result will be the animals array
 # do this with map, result will be an array of Pet instances 
 
