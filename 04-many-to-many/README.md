@@ -9,6 +9,8 @@
 3. Demonstrate **Single Source of Truth** by not storing collections of objects on other objects
 4. Demonstrate **Single Source of Truth** by not storing one object in multiple collections
 
+<img src="pics/two_has_many_throughs.png" alt="two has many thrus" height="300px">
+
 
 <img src="pics/doggo1.jpg" width="250px"/>
 ______
@@ -45,6 +47,9 @@ RULES!!
 
 ______
 #### Deliverables for Lecture:
+##### User -< UserPets >- Pets
+<img src="pics/user_pets.png" alt="User Pets" height="300px">
+
 1. Implement a many-to-many relationship between User and Pet
 2. Create and update classes and class initialize methods where needed 👀
 3. Update instance or class methods where needed 👀 
