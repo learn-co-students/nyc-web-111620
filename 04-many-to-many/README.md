@@ -11,6 +11,37 @@
 
 
 <img src="pics/doggo1.jpg" width="250px"/>
+______
+
+#### Review!
+
+Author -< Book
+
+Belongs To (Book)
+@@all will be helpful
+holds the reference 
+    instance variable referencing the related instance of the other class
+    ie Book holds a reference to an Aiuthor
+attr_accessor for that instance variable ie `Book#author`
+
+Has Many (Author)
+@@all will be helpful
+has a method to go through the related class ie `Author#books`
+
+
+RULES!!
+- If you see >-< **you are missing a join model!!!**
+
+#### Icebox
+- OO Banking Qs Using instance methods that belong to one class in another *cam* 
+    - `#valid?`
+- `self.method` or just `method` ===> explicit v implicit self 
+- `self.class.all`
+- Are there ever domains that have more than three classes that are associated? LETS THINK OF ONE!!
+
+
+
+
 
 ______
 #### Deliverables for Lecture:

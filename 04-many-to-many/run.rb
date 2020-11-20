@@ -1,6 +1,8 @@
 require 'pry' 
 require_relative './app/models/user'
 require_relative './app/models/pet'
+require_relative './app/models/user_pet'
+
 
 
 
@@ -10,12 +12,21 @@ caryn = User.new("caryn", 47, "inigo montoya prepare to die")
 jason = User.new("jason", 22, "love sleeping", "NY")
 julio = User.new("julio", 49, "lets code!!", "FL")
 jallen = User.new("jallen", 27, "lets go", "MO")
-j2 = User.new("jason", 88, "hates sleeping", "CA")
 
 
-mojo = Pet.new("Mojo", "cat", "meeeeoooowww", caryn)
-turbo = Pet.new("turbo", "dog", "woof", jason) 
+mojo = Pet.new("Mojo", "cat", "meeeeoooowww")
+turbo = Pet.new("turbo", "dog", "woof") 
 nameless = Pet.new("nameless", "cat", "grumble grumble")
+
+up1 = UserPet.new(cam, mojo, "monster")
+up2 = UserPet.new(daniel, mojo, "moji")
+up3 = UserPet.new(caryn, mojo, "booger")
+up4 = UserPet.new(jason, mojo, "monster")
+up5 = UserPet.new(cam, nameless, "toothless")
+up6 = UserPet.new(jason, turbo, "t")
+
+
+
 
 animals = [ 
     {name: "Mickey", species: "dog", sound: "arf"},

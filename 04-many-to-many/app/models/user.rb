@@ -14,17 +14,23 @@ class User
         @views = 0 
         @@all << self 
     end
-
-    def pets 
-        Pet.all.find_all { |pet| pet.owner == self }
+    
+    def user_pets # an array of UserPet instances b/c we used select 
+        UserPet.all.select { |up| up.user == self }
     end
 
-    def adopt_pet(pet)
-        if pet.owner == nil
-            pet.owner = self 
-        else
-            puts "you can't go around stealing pets!!!!"
-        end
+    def pets  # an array of pet instances b/c we mapped
+        self.user_pets.map { |up| up.pet }
+    end
+
+
+    def adopt_pet(pet, nickname="") # TODO NEED TO UPDATE!!!
+        UserPet.new(self, pet, nickname)
+        # if pet.owner == nil
+        #     pet.owner = self 
+        # else
+        #     puts "you can't go around stealing pets!!!!"
+        # end
     end
 
     def number_of_pets
