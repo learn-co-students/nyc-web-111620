@@ -10,11 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_30_161456) do
+ActiveRecord::Schema.define(version: 2020_11_30_193910) do
 
   create_table "neopets", force: :cascade do |t|
     t.string "name"
     t.integer "weight"
+  end
+
+  create_table "ownerships", force: :cascade do |t|
+    t.string "color"
+    t.integer "neopet_id"
+    t.integer "user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "password"
+    t.integer "age"
   end
 
 end
