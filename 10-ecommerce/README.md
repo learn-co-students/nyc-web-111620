@@ -23,6 +23,7 @@ Your **minimum requirements** for this project are to build a Command Line App t
 3. Has a CLI that allows users to interact with your database as defined by your _user stories_ (minimum of four; one for each CRUD action).
 4. Uses good OO design patterns. You should have separate models for your runner and CLI interface.
 
+![ERD](ERD.png)
 ---
 
 ## Project Overview (Timeline)
