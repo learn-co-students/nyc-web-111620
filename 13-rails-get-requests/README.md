@@ -29,13 +29,13 @@ movies -< >- users
 
 
 ## Outline
-- [] Create our model using `rails g model`
-- [] Work on CRUD, focus on routes and ActionView helpers
-  - [] Read
-    - [] Views -> Index, Show
+- [X] Create our model using `rails g model`
+- [X] Work on CRUD, focus on routes and ActionView helpers
+  - [X] Read
+    - [X] Views -> Index, Show
        - , New, Edit 
-    - [] Review `link_to` and path helpers
-    - [] Review route helpers
+    - [X] Review `link_to` and path helpers
+    - [X] Review route helpers
 
   - [] Create
     - [] HTML form vs `form_tag` vs `form_for`
