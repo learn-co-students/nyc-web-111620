@@ -1,0 +1,19 @@
+<h1>Create New WatchList</h1>
+
+<%= form_for @watch_list do |f| %>
+  <%= f.label :user_id %>
+  <%= f.collection_select :user_id, User.all, :id, :name %>
+
+  <%= f.label :movie_id %>
+  <%= f.collection_select :movie_id, Movie.all, :id, :title %>
+
+  <%= f.submit %>
+<% end %>
+
+
+  <%# <select name="user_id">
+    <option value="30">Greg</option>
+    <option value="45">Saab</option>
+    <option value="50">Opel</option>
+    <option value="90">Audi</option>
+  </select> %>
