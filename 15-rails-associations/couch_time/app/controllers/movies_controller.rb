@@ -18,6 +18,7 @@ class MoviesController < ApplicationController
   
   def create 
     @movie = Movie.create(movie_params)
+    byebug
     
     redirect_to movie_path(@movie) 
   end 
@@ -49,6 +50,7 @@ class MoviesController < ApplicationController
   private 
 
   def movie_params
+    byebug
     params.require(:movie).permit(:title, :genre, :release_date)
   end 
   

@@ -7,6 +7,10 @@
   <img src="<%= @movie.img_url %>" alt="<%= @movie.title%>">
 </marquee>
 
+                <%# POST /movies/:id/like %>
+<h5>Total Likes <%= @movie.likes %></h5>
+<%= button_to "❤", likes_path(@movie) %>
+
 
 <%= button_to "delete movie", movie_path(@movie), method: :delete %>
                               <%# "/movies/:id" %>

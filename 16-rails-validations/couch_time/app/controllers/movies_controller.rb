@@ -13,6 +13,17 @@ class MoviesController < ApplicationController
     # render :show
   end 
   
+  def add_like
+    @movie = Movie.find(params[:id])
+    
+    @movie.likes = 0 unless @movie.likes
+    @movie.likes = @movie.likes + 1
+    
+    @movie.save
+
+    redirect_to movie_path(@movie)
+  end
+  
   def new 
     @movie = Movie.new
     # render :new

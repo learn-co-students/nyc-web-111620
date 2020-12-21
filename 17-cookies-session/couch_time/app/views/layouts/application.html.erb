@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CouchTime</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+    <nav>
+      <ul>
+        <li>
+          <a href="https://fontmeme.com/fonts/bebas-neue-font/"><img class="logo" src="https://fontmeme.com/permalink/201221/5d6e03a14f6887de23b7ed5de7df879f.png" alt="bebas-neue-font" border="0"></a>
+        </li>
+
+        <li class="nav-tabs first-tab"><%= link_to "Movies", movies_path %></li>
+        <li class="nav-tabs"><%= link_to "New movie", new_movie_path %></li>
+        <li class="nav-tabs"><%= link_to "Watch List", new_watch_list_path %></li>
+      </ul>
+    </nav>
+
+    <div class='container'>
+      <%= yield %>
+    </div>
+  </body>
+</html>
