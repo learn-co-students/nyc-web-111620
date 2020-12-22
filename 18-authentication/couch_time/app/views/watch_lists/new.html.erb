@@ -1,0 +1,26 @@
+
+<div class='form-container'>
+  <h1> WatchList</h1>
+
+  <%= form_for @watch_list do |f| %>
+    <div class="form-input">
+      <%= f.label :user_id %>
+      <%= f.collection_select :user_id, @users, :id, :name %>
+    </div>
+
+  <div class="form-input">
+      <%= f.label :movie_id %>
+      <%= f.collection_select :movie_id, @movies, :id, :title %>
+    </div>
+
+    <%= f.submit class: 'form-btn'%>
+  <% end %>
+</div>
+
+
+  <%# <select name="user_id">
+    <option value="30">Greg</option>
+    <option value="45">Saab</option>
+    <option value="50">Opel</option>
+    <option value="90">Audi</option>
+  </select> %>

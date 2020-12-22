@@ -1,0 +1,28 @@
+
+<% @movie_categories.each do |movie| %>
+  <h1><%= movie[:category] %></h1>
+
+  <div class='index-container'>
+    <% movie[:movies].each do |movie| %>
+    
+      <div class='index-tile'>
+        <a href="<%= movie_path(movie) %>">
+          <img class="index-img" src="<%= movie.img_url %>" alt="<%= movie.title%>">
+        </a>
+
+        <div class='tile-info'>
+          <p class="info">▶️</p>
+          <p class="info">➕</p>
+          <p class="info">👍</p>
+          <p class="info">👎</p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+
+
+<%# <a href="/movies/1"> movie 1 </a> %>
+
+
