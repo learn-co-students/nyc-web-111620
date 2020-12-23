@@ -1,0 +1,49 @@
+
+<div class="profile-dash">
+  <div class="profile">
+    <% if flash[:error] %>
+      <p><%= flash[:error] %></p>
+    <% end %> 
+    
+    <h1><%= @user.name %></h1>
+    <h5>Username: <%= @user.user_name %></h5>
+    <p>age: <%= @user.age %></p>
+    <p>slogan: <%= @user.slogan %></p>
+
+    <% if @user != @current_user%>
+      <%= form_tag friendships_path do %>
+        <%= hidden_field_tag :followee_id, @user.id  %>
+        <%= submit_tag "Follow" %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="friends"> 
+    <h1>Friends List</h1>
+
+    <% @user.followees.each do |user| %>
+      <p><%= link_to user.name, user_path(user) %></p>
+    <% end %>
+  </div>
+
+  <div class="watch-list">
+      <h1>Watch List</h1>
+      <div class='watch-list-movies'>
+        <% @user.movies.each do |movie| %>
+      
+          <div class='index-tile show-tile'>
+            <a href="<%= movie_path(movie) %>">
+              <img class="index-img" src="<%= movie.img_url %>" alt="<%= movie.title%>">
+            </a>
+
+            <div class='tile-info'>
+              <p class="info">▶️</p>
+              <p class="info">➕</p>
+              <p class="info">👍</p>
+              <p class="info">👎</p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+</div>

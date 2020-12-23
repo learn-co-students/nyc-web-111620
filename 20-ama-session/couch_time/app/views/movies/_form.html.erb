@@ -1,0 +1,27 @@
+<% if flash[:errors_array] %>
+  <% flash[:errors_array].each do |error| %>
+    <p style="color: red;"><%= error %></p>
+  <% end %>
+<% end %>
+
+
+  <%= form_for @movie do |f| %>
+    <div class='form-input'>
+      <%= f.label :title  %>
+      <%= f.text_field :title %>
+    </div>
+
+    <div class='form-input'>
+      <%= f.label :genre %>
+      <%= f.text_field :genre %>
+    </div>
+
+    <div class='form-input'>
+      <%= f.label :release_year %>
+      <%= f.number_field :release_year %>
+    </div>
+    
+    
+    <%= f.submit class: "form-btn" %>
+  <% end %>
+

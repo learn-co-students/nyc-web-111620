@@ -1,0 +1,222 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ ul {
+   margin: 0px;
+   padding: 0px;
+ }
+
+
+ /* img {
+   height: 200px;
+ } */
+
+ body {
+   background-color: rgb(20, 20, 20);
+ }
+
+ .logo {
+  width: 150px;
+ }
+ 
+nav {
+  width: 100%;
+
+  /* border: 1px solid white; */
+}
+
+nav ul {
+  /* border: 1px solid white; */
+  
+  
+  /* height: 40px; */
+  /* line-height: 40px; */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2000;
+  background-color: rgb(20, 20, 20);
+}
+
+nav ul li {
+  /* border: 1px solid white; */
+  
+  display: inline-block;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+nav ul li a:hover {
+  color: gray;
+  transition: 1s;
+}
+
+.nav-tabs {
+  padding: 0px 20px;
+  line-height: 70px;
+}
+
+.first-tab {
+  margin-left: 15px;
+}
+
+.right {
+  float: right
+}
+
+.container {
+  background-color: rgb(20, 20, 20);
+  margin-top: 70px;
+}
+
+.index-container {
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  z-index: -10;
+  /* border: 1px solid white; */
+  padding-top: 60px;
+}
+
+ .index-tile {
+   margin: 15px 3px 0px 3px;
+   height: 300px;
+   /* border: 1px solid white; */
+  }
+  
+  .index-img {  
+    height: 80%; 
+    border-radius: 10px;
+  }
+  
+  h1 {
+    color: whitesmoke;
+  }
+  
+  
+  .tile-info {
+    display: none;
+  }
+  
+  
+  a:hover + .tile-info {
+    display: block;  
+    text-align: center  
+  }
+
+  .index-tile:hover {
+    transform: scale(1.25);
+    z-index: 1000;
+    overflow: visible;
+    transition: 1.5s;
+    box-shadow: 0px 0px 20px;
+  }
+  
+    
+  .tile-info:hover {
+    display: block;
+    margin: 0px auto;
+    text-align: center;  
+  }
+    
+    .info {
+      display: inline-block;
+      margin: 3px 3px 0px 3px;
+  }
+ 
+  /* Form CSS */
+  
+  .form-container {
+    color: whitesmoke;
+    min-width: 300px;
+    max-width: 600px;
+    margin: 0px auto;
+    margin-top: 200px;
+    background-color: rgba(229,9,20,.6);
+    padding: 20px;
+    border-radius: 25px;
+    text-align: center;
+  }
+  
+  .form-btn {
+    background-color: rgb(229,9,20);
+    margin-top: 10px;
+    border-radius: 25px;
+  }
+  
+  .form-input {
+    margin-top: 10px;
+  }
+
+   /* User Profile CSS */
+   .profile-dash {
+    display: grid;
+    grid-template-columns: repeat(11, 1fr);
+    grid-template-rows: repeat(11, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    height: 100vh;
+    }
+    
+    .profile { 
+      grid-area: 1 / 1 / 7 / 5; 
+
+      background-color: rgba(229,9,20,.3);
+      background-color: rgba(255,255,255,.5);
+      margin: 3px;
+      padding: 10px;
+      border-radius: 25px;
+    }
+    .friends { 
+      grid-area: 1 / 5 / 7 / 12; 
+      text-align: center;
+      
+      background-color: rgba(229,9,20,.3);
+      margin: 3px;
+      border-radius: 25px;
+    }
+
+    .watch-list { 
+      grid-area: 7 / 1 / 12 / 12; 
+      text-align: center;
+      
+      background-color: rgba(229,9,20,.3);
+      margin: 3px;
+      border-radius: 25px;
+    }
+
+    .watch-list-movies {
+      display: flex;
+      flex-direction: row;
+      overflow-x: scroll;
+      overflow-y: hidden;
+
+      padding: 20px;
+    }
+
+    .watch-list-movies div a img {
+      height: 80%;
+      z-index: 100;
+    }
+    
+    .show-tile {
+      height: 220px;
+    }
