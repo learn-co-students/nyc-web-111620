@@ -49,7 +49,7 @@ let arr = [1, 2, 3, 4]
 
 // ⭐️ CALLBACKS ARE AT THE MERCY OF THE FUNCTION RECEIVING THE CALLBACK ⭐️
 
-arr.forEach(function (beef, i, originalArr){
+arr.forEach(function (beef, i, originalArr) {
     console.log('beeef -', beef)
     console.log('i - ', i)
     console.log('original array - ', originalArr)
