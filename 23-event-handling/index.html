@@ -3,7 +3,7 @@
 <head>
    <meta charset="utf-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <title>Memez</title>
+   <title>Memes</title>
    <!-- Favicons (icon on the browser tab) -->
    <link rel="apple-touch-icon" sizes="180x180" href="pics/favicon_io/apple-touch-icon.png">
    <link rel="icon" type="image/png" sizes="32x32" href="pics/favicon_io/favicon-32x32.png">
@@ -14,14 +14,16 @@
    <!-- CSS -->
    <link rel="stylesheet" href="style.css">
    <!-- Javascript-->
-   <script src="index.js"></script>
+   <script src="index.js" defer></script>
 </head>
 
 <body>
    <header id="menu">
       <h1 class="logo">Memes 0100 Programmers</h1>
+      <button id="memeButton">Click for light/dark mode</button>
    </header>
    <main>
+
       <div id="listings">
          <div class="post">
             <div class="image">
@@ -36,7 +38,15 @@
             <h4 class="description">I'm coming for you bug!!!</h4>
          </div>
       </div>
-      <h2>"These memes aren't funny" - Raffy 💁🐶</h2>
+      <h2 id="form-header">Create New Meme</h2>
+      <form id="newMemeForm">
+         <label for="picture">Meme URL</label>
+         <input type="text" id="picture" name="picture" />
+         <label for="description">Meme Description</label>
+         <textarea id="description" name="description"></textarea>
+         <input type="submit" value="Create New Meme!" />
+      </form>
+
    </main>
 </body>
 
