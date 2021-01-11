@@ -22,7 +22,7 @@ __________
   - DOM Manipulation
 
 *When X **event** happens, do Y **fetch**, and slap Z on/off the **DOM***
-  ________
+__________
 
 ### History of JavaScript
 * Early Days
