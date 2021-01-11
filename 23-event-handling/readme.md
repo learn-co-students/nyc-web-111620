@@ -12,14 +12,14 @@
 - Communicating with the Server
 
 ## Outline
-- Discuss browser events
-  - defer/DOMContentLoaded
-  - button click event
-  - form submit event
+- [ ] Discuss browser events
+- [ ] defer/DOMContentLoaded
+- [ ] button click event
+- [ ] form submit event
     - how to stop the page from reloading
     - how to get input field value
-  - adding elements to the DOM
-    - createElement vs innerHTML vs insertAdjacentHTML
+- [ ] adding elements to the DOM
+    - create element vs innerHTML
 
 ### What are some common things users do on a webpage?
 
