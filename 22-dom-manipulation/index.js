@@ -2,7 +2,7 @@
 // https://developer.mozilla.org/en-US/
 // https://www.w3schools.com/cssref/css_selectors.asp 
 
-// READ
+/***************** READ *****************/
 // Get the header programatically
 const header = document.querySelector('header')
 // Select all of the posts
@@ -12,24 +12,25 @@ const allPosts = document.querySelectorAll('.post')
 // console.log("allPosts - ", allPosts)
 
 
-// UPDATE
+/***************** UPDATE *****************/
 // Update the first post's description to say "I need more sleep"
 // STEP 1: Find the element you're trying to update
 // let firstPost = document.querySelector('.post')
 let firstPost = allPosts[0]
 let h4 = firstPost.querySelector('h4')
+// STEP 2: make some update!
 h4.textContent = "I need more sleep."
 
 //  Change the title's color to white
 const h1 = header.querySelector('.logo')
 h1.style.color = "white"
 
-// DELETE
+/***************** DELETE *****************/
 // Remove Raffy's unwarranted comment, ugh 🙄💔
 const h2 = document.querySelector('main h2')
 h2.remove()
 
-// CREATE
+/***************** CREATE *****************/
 let postsArray = [
     {
         memeUrl: 'pics/dino.jpeg',
@@ -53,18 +54,19 @@ let postsArray = [
     }
 ]
 
+
+//  Create a post for each object in the postsArray array
+// THIS IS HOW WE WANT EACH POST TO BE STRUCTURED
 // < div class="post" >
 //     <div class="image">
 //         <img src="pics/bugfix.jpeg">
 //     </div>
 //     <h4 class="description">Has this ever happened to you?</h4>
 // </div>
-// add one new funny post
 
 
-//  Create a post for each object in the postsArray array
 
-// artisinal way
+/***************** ARTISINAL APPROACH *****************/
 postsArray.forEach(function (postObject) {
     // STEP 1: Create each element
     const newOuterDiv = document.createElement('div')
@@ -83,22 +85,22 @@ postsArray.forEach(function (postObject) {
     newH4.classList.add('description')
     newH4.textContent = postObject.description
 
-    // STEP 3: Figure out the relationships if any
+    // STEP 3: Figure out the relationships, if any
     newOuterDiv.append(newInnerDiv, newH4)
     newInnerDiv.append(newImg)
 
-    // STEP 4: Slap this on the DOM!
-    // where are we slapping?? To which element are we adding it?
+    // STEP 4: Slap it on the DOM!
+    // Where are we slapping our elements?? To which element are we adding/appending it?
     const listings = document.querySelector("#listings")
     listings.append(newOuterDiv)
 })
 
 
-// OTHER WAY: innerHTML
+/***************** INNERHTML APPROACH *****************/
 // postsArray.forEach(function (postObject) {
 //     // STEP 1: Find where we want to add the new post
 //     const listings = document.querySelector('#listings')
-//     console.log(postObject)
+//    // STEP 2: update the innerHTML
 //     listings.innerHTML +=
 //         `<div class="post" >
 //             <div class="image">
