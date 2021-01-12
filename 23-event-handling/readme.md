@@ -14,13 +14,13 @@
 
 
 ## Outline
-- [ ] show artisanal/innerHTML approach
+- [ ] Show artisanal/innerHTML approach
 - [ ] Discuss browser events
 - [ ] defer vs DOMContentLoaded
 - [ ] button `click` event
 - [ ] form `submit` event
-    - how to stop the page from reloading
-    - getting data from the form
+    - How to stop the page from reloading
+    - Getting data from the form
 
 ## Deliverables
 - [ ] When a user clicks the dark mode toggle in the header, change the app between light and dark mode

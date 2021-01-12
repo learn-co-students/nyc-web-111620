@@ -167,6 +167,7 @@ button:active {
 
 #memeButton, input[type="submit"] {
 	background-color: orange;
+	width: 70%;
 }
 
 #memeButton:hover, input[type="submit"]:hover {
