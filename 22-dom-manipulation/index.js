@@ -12,7 +12,6 @@
 
 
 // CREATE
-// TODO Create post for each object in this array
 let postsArray = [
     {
         memeUrl: 'pics/dino.jpeg',
