@@ -11,15 +11,19 @@
 - **Handling Events**
 - Communicating with the Server
 
+
+
 ## Outline
 - [ ] Discuss browser events
-- [ ] defer/DOMContentLoaded
-- [ ] button click event
-- [ ] form submit event
+- [ ] defer vs DOMContentLoaded
+- [ ] button `click` event
+- [ ] form `submit` event
     - how to stop the page from reloading
-    - how to get input field value
-- [ ] adding elements to the DOM
-    - create element vs innerHTML
+    - getting data from the form
+
+## Deliverables
+- [ ] When a user clicks the dark mode toggle in the header, change the app between light and dark mode
+- [ ] When a user submits the form, add a new meme to the page using the data from the form
 
 ### What are some common things users do on a webpage?
 
@@ -27,10 +31,21 @@ https://codepen.io/telegram/pen/PJpPGm
 
 [All the Events](https://developer.mozilla.org/en-US/docs/Web/Events)
 
-### What are the steps for creating interaction with the DOM?
-1. Figure out which element is triggering the event
-2. Decide what of type event we're handling
-3. Write a callback function that will run when the event happens
+### Three Questions for Handling Events
+
+1. What elements do we want to listen for events on? (button, form, checkbox, etc)
+2. What kind of event are we listening for? (click, submit, scroll, etc)
+3. What do we want to happen? (what function do we want to run)
+
+
+```js
+const button = document.querySelector("button")
+button.addEventListener("click", function() {
+  console.log("Hello, the button was clicked")
+})
+```
+
+_______
 
 ## What are Web Events 🤔
 
