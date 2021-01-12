@@ -14,6 +14,7 @@
 
 
 ## Outline
+- [ ] show artisanal/innerHTML approach
 - [ ] Discuss browser events
 - [ ] defer vs DOMContentLoaded
 - [ ] button `click` event
