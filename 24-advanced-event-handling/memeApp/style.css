@@ -196,6 +196,8 @@ button:active {
 
 .likes-count {
 	display: flex;
+	border: solid;
+	border-color: green;
 	color: var(--alt-font-color);
 }
 
