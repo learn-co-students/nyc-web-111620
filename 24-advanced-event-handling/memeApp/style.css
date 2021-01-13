@@ -1,0 +1,282 @@
+:root {
+	--main-bg-color: #ffffff;
+	--alt-bg-color: #FFFFFF;
+	--main-font-color: #FFFFFF;
+	--alt-font-color: rgba(0, 0, 0, 0.85);
+	--theme-primary: rgba(171, 84, 189, 0.856);
+}
+
+body.dark-mode {
+	--main-bg-color: rgb(0, 0, 0);
+	--alt-bg-color: rgb(89, 89, 89);
+	--alt-font-color: rgba(255, 255, 255, 0.85);
+	--theme-primary: #1c1c20;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-size: 16px;
+	font-family: 'Sniglet', cursive;
+	font-weight: 300;
+	background-color: var(--main-bg-color);
+}
+
+h1, h2, h3, h4 {
+	margin: 0.5em 0;
+	font-weight: 800;
+	color: var(--alt-font-color);
+}
+
+/* Form */
+
+#form-header {
+	padding: 1em;
+	margin-top: 3em;
+}
+
+form {
+	/* display: block; */
+	padding: 1em;
+	color: var(--alt-font-color);
+	background-color: var(--alt-bg-color);
+	width: 30%;
+}
+
+form input, form textarea {
+	margin-top: 1em;
+	margin-bottom: 2em;
+	display: block;
+	font-size: 20px;
+	background: none;
+	padding: 0.5rem 0.5rem;
+	background-color: white;
+	width: 100%;
+}
+
+input[type="submit"] {
+	margin: 1em;
+	width: auto;
+}
+
+/* NavBar */
+
+header {
+	width: 100%;
+	padding: 0.75rem 1rem;
+	box-shadow: 1px 1px 2px -1px rgba(0, 0, 0, 0.75);
+	margin-bottom: 2%;
+	color: rgb(33, 6, 68);
+	background-color: var(--theme-primary);
+}
+
+/* listings container */
+
+#listings {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	align-items: flex-start;
+	border: solid;
+	border-color: red;
+}
+
+/* post */
+
+.post {
+	margin: 1rem 0;
+	margin: 2rem 0.75rem 4rem;
+	display: flex;
+	flex-direction: column;
+	border: solid;
+	border-color: blue;
+}
+
+.post .details {
+	margin-left: 1rem;
+}
+
+.post .info {
+	display: flex;
+	justify-content: space-between;
+	margin: 0.5rem 0;
+}
+
+.post .image {
+	position: relative;
+}
+
+.post .image img {
+	width: 20em;
+	height: 20em;
+}
+
+.post .description {
+	font-weight: lighter;
+	border: solid;
+	border-color:rgb(255, 208, 0);
+}
+
+.rating {
+	color: rgb(255, 208, 0);
+}
+
+button, input[type="submit"] {
+	font-size: 20px;
+	background: none;
+	border: none;
+	border-radius: 1rem;
+	padding: 0.5rem 1rem;
+	cursor: pointer;
+	box-shadow: rgba(63, 18, 83, 0.657) 2px 2px 2px 2px;
+}
+
+/* button */
+
+button {
+	font-size: 20px;
+	background: none;
+	border: none;
+	border-radius: 1rem;
+	padding: 0.5rem 1rem;
+	cursor: pointer;
+	box-shadow: rgba(63, 18, 83, 0.657) 2px 2px 2px 2px;
+}
+
+button:focus.delete-button, button:hover.delete-button {
+	outline: none;
+}
+
+button:active {
+	box-shadow: rgba(32, 2, 56, 0.924) 1px 1px 4px;
+}
+
+.post .delete-button {
+	position: absolute;
+	cursor: pointer;
+	border-radius: 0;
+	background-color: white;
+	margin: 0.5rem;
+	width: 40px;
+	height: 40px;
+	padding: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: 40%;
+	top: 0;
+	left: 0;
+}
+
+.likes-button {
+	cursor: pointer;
+	width: 35px;
+	height: 35px;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color:	var(--alt-bg-color);
+
+}
+.likes-button:focus, #memeButton {
+	outline: none;
+}
+
+.post:hover .delete-button {
+	opacity: 0.7;
+}
+
+.post .delete-button:hover {
+	opacity: 1;
+}
+
+.likes-count {
+	display: flex;
+	color: var(--alt-font-color);
+}
+
+#memeButton, input[type="submit"] {
+	background-color: orange;
+	width: 70%;
+}
+
+#memeButton:hover, input[type="submit"]:hover {
+	background-color: rgba(255, 140, 0, 0.94);
+}
+
+/* Toggle */
+
+.toggle-switch {
+	position: fixed;
+	top: 0;
+	right: 0;
+	margin: 0.5rem;
+}
+
+.toggle-switch input {
+	display: none;
+}
+
+.toggle-switch label {
+	position: relative;
+	display: inline-block;
+	width: 5em;
+	height: 3em;
+	background-color: #6f00ff;
+	border-radius: 1.7em;
+}
+
+.toggle-switch label::after {
+	content: '';
+	position: absolute;
+	width: 2.9em;
+	height: 2.9em;
+	border-radius: 50%;
+	background-color: orange;
+	top: 1px;
+	left: 1px;
+	transition: all 0.3s;
+}
+
+.toggle-switch input:checked+label::after {
+	left: 2.04em;
+}
+
+.toggle-switch input:checked+label {
+	background-color: #6f00ff;
+}
+
+/* responsiveness */
+
+@media (max-width: 767px) {
+	body {
+		font-size: 3vmin;
+	}
+}
+
+@media (min-width: 768px) {
+	.post {
+		flex: 0 1 calc(50% - 2rem);
+		margin: 1rem;
+	}
+}
+
+@media (min-width: 1024px) {
+	.post {
+		flex: 0 1 calc(33% - 2rem);
+	}
+}
+
+@media (min-width: 1280px) {
+	.post {
+		flex: 0 1 calc(25% - 2rem);
+	}
+	header, main {
+		padding: 0.75rem 8rem;
+	}
+}
