@@ -19,6 +19,23 @@ function renderOnePost(postObject) {
                 <button class="likes-button" data-button-type="upvote">👍</button>`
 
     listings.append(outerDiv)
+
+    // APPROACH 1: Nested Event Listeners
+    const delBtn = outerDiv.querySelector('.delete-button')
+    delBtn.addEventListener('click', function () {
+        outerDiv.remove()
+    })
+
+    const likeBtn = outerDiv.querySelector('.likes-button')
+    likeBtn.addEventListener('click', function (event) {
+        console.log(event.target)
+        const pLikesDisplay = outerDiv.querySelector('.likes-count')
+        // const currLikes = parseInt(pLikesDisplay.textContent)
+        // pLikesDisplay.textContent = currLikes + 1
+
+        postObject.likes += 1
+        pLikesDisplay.textContent = postObject.likes
+    })
 }
 
 
@@ -36,8 +53,7 @@ memeForm.addEventListener('submit', function (event) {
 
     const post = {
         memeUrl: memeUrlInput,
-        description: descriptionInput,
-        likes: 0
+        description: descriptionInput
     }
 
     event.target.reset()
@@ -50,30 +66,6 @@ postsArray.forEach(function (postObject) {
     renderOnePost(postObject)
 })
 
-// STEP 1: find common ancestor/parent
-const listings = document.querySelector('#listings')
-
-// STEP 2: Add event listener
-listings.addEventListener('click', function (event) {
-    // STEP 3: Add conditional to know if the event we
-    // care about was clicked
-    const postDiv = event.target.closest('div.post')
-
-    if (event.target.matches('.delete-button')) {
-        // const postDiv = event.target.closest('div.post')
-        postDiv.remove()
-    }
-    else if (event.target.matches('.likes-button')) {
-        // event.target.dataset.buttonType === 'upvote'
-        // const postDiv = event.target.closest('div.post')
-        const likesDisplay = postDiv.querySelector('p.likes-count')
-        const currLikes = parseInt(likesDisplay.textContent)
-        likesDisplay.textContent = currLikes + 1
-    }
-})
-
-
-/************** FLAWED APPROACH **************/
 
 // const allDelBtns = document.querySelectorAll('.delete-button')
 // allDelBtns.forEach(function (button) {
@@ -84,22 +76,6 @@ listings.addEventListener('click', function (event) {
 //         div.remove()
 
 //     })
-// })
-
-
-
-/************** EVENT PROPAGATION DEMO **************/
-
-// document.querySelector('.delete-button').addEventListener('click', function(event) {
-//     console.log('DELETE CLICKED. ', event)
-// })
-
-// document.querySelector('.post').addEventListener('click', function(event) {
-//     console.log('POST DIV CLICKED. ', event)
-// })
-
-// document.body.addEventListener('click', function(event) {
-//     console.log('BODY CLICKED. ', event.target)
 // })
 
 
