@@ -1,5 +1,7 @@
 # Event Delegation
 
+- New Trial Approach: Parking lot q's
+
 ## Learning Goals
 1. Explain event propagation and identify how it can be used
 2. Use conditional logic in combination with event propagation to delegate events
