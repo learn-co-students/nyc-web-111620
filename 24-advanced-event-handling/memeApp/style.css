@@ -118,7 +118,7 @@ header {
 .post .description {
 	font-weight: lighter;
 	border: solid;
-	border-color:rgb(255, 208, 0);
+	border-color: rgb(255, 208, 0);
 }
 
 .rating {
@@ -126,11 +126,10 @@ header {
 }
 
 button, input[type="submit"] {
-	font-size: 20px;
+	font-size: 1em;
 	background: none;
 	border: none;
 	border-radius: 1rem;
-	padding: 0.5rem 1rem;
 	cursor: pointer;
 	box-shadow: rgba(63, 18, 83, 0.657) 2px 2px 2px 2px;
 }
@@ -180,9 +179,9 @@ button:active {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-color:	var(--alt-bg-color);
-
+	background-color: var(--alt-bg-color);
 }
+
 .likes-button:focus, #memeButton {
 	outline: none;
 }
