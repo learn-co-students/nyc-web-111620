@@ -1,6 +1,12 @@
 class User < ApplicationRecord
   has_many :watch_lists, dependent: :destroy
-  # has_many :movies, through: :watch_lists
+  has_many :movies, through: :watch_lists
+
+
+
+  def movies 
+    self.watch_lists.map {|wl| wl.movie}
+  end 
 
 
   def get_api_movies
@@ -13,6 +19,15 @@ class User < ApplicationRecord
 
     my_movies
   end
+
+@user.get_api_movies
+
+
+
+
+
+
+
 
   has_many :followed_users, foreign_key: :follower_id, class_name: 'Friendship'
   has_many :followees, through: :followed_users
