@@ -12,9 +12,14 @@
 3. Understand how to use a Promise
 4. Use `.then` to defer function calls until promises resolve
 
+---
 
+### Three Pillars of Javascript
+- Manipulating the DOM
+- **Handling Events
+- **Communicating with the Server**
 
-_______
+---
 
 **Terms:**
 
@@ -24,7 +29,7 @@ _______
 - AJAX - Aynchronous Javacript And XML
   - although X in AJAX stands for XML, JSON is used more than XML nowadays because of its many advantages such as being lighter and a part of JavaScript
 
-_________
+---
 
 ## What Does Synchronous/ Asynchronous Mean 🕰
 
