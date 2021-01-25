@@ -11,10 +11,12 @@
     <p>slogan: <%= @user.slogan %></p>
 
     <% if @user != @current_user%>
+    
       <%= form_tag friendships_path do %>
         <%= hidden_field_tag :followee_id, @user.id  %>
         <%= submit_tag "Follow" %>
       <% end %>
+
     <% end %>
   </div>
 
