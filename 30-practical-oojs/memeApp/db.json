@@ -1,0 +1,22 @@
+{
+  "posts": [
+    {
+      "id": 5,
+      "memeUrl": "pics/space.jpeg",
+      "description": "Have standards people, standards!!!",
+      "likes": 77
+    },
+    {
+      "id": 6,
+      "memeUrl": "pics/restaurant.jpg",
+      "description": "Cheers to working code!",
+      "likes": 90
+    },
+    {
+      "id": 7,
+      "memeUrl": "pics/googling.jpeg",
+      "description": "Googling? No. Duck duck go-ing.",
+      "likes": 104
+    }
+  ]
+}

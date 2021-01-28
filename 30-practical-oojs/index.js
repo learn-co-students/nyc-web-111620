@@ -1,23 +1,38 @@
+function globalIntroduce() {
+    // console.log(this)
+    return `Hi! I'm ${this.firstName}`
+}
+
 const greg = {
     firstName: "Greg",
-    lastName: "Dwyer"
+    lastName: "Dwyer",
+    introduce: globalIntroduce
 }
 
 const rianna = {
-    firstName: "Rianna",
-    lastName: "Cleary"
+    firstNameBeef: "Rianna",
+    lastNamejfdskjfbsd: "Cleary",
+    introduce: globalIntroduce
 }
 
 const michelle = {
     firstName: "Michelle",
-    familyName: "Rios"
+    familyName: "Rios",
+    introduce: globalIntroduce
 }
 
+const ian = {
+    firstName: "Ian",
+    introduce: globalIntroduce
+}
 
+// console.log(globalIntroduce()) // "this" will be window object in globalIntroduce function
 
 // console.log(greg.introduce())
 // console.log(rianna.introduce())
 // console.log(michelle.introduce())
+
+
 
 
 // console.log(michelle.introduce)
