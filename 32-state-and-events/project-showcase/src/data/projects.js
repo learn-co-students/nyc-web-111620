@@ -13,8 +13,7 @@ const projects = [
     about: "Guides for everything",
     phase: 3,
     link: "https://github.com/westsideori/i-sherpa-frontend",
-    image:
-      "https://lh3.googleusercontent.com/proxy/rO3k6vhdYyR8vGi7wkqK6H4OA2r1h4EGf8j3U00NwmnFW3T3LrgLcjbhhiR3wuQV1fd6I4Zu2O4ePEi1AQmHuSbxpqk-DFea4x3Bh1mLOhmv9rWAqZwfSATWzJWz",
+    image: "./images/isherpa.png",
   },
   {
     id: 3,

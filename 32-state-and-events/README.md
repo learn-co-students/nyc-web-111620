@@ -1,5 +1,19 @@
 # State and Events
 
+## Questions?
+
+- useState showing undefined
+- using a value as a key when you don't have an ID
+- passing eyeColor as a prop
+
+```js
+["a", "b", "c", "c"].map((letter, index) => <Letter key={index} />);
+// change order
+// removed
+
+// npm package: uuid, nanoid
+```
+
 ## Objectives
 
 - [ ] Add event handlers to elements in React
