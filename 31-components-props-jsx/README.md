@@ -2,7 +2,11 @@
 
 ## Notes
 
+Lecture Expectations
+
 DQ Questions?
+
+- how to play the dog mp3?
 
 ## Students Will Be Able To (SWBATs)
 

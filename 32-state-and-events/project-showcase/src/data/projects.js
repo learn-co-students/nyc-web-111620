@@ -1,0 +1,86 @@
+const projects = [
+  {
+    id: 1,
+    name: "YouTravel",
+    about: "YouTube for Travel Videos",
+    phase: 3,
+    link: "https://youtravel.netlify.app/",
+    image: "https://i.imgur.com/Y6mlORn.png",
+  },
+  {
+    id: 2,
+    name: "iSherpa",
+    about: "Guides for everything",
+    phase: 3,
+    link: "https://github.com/westsideori/i-sherpa-frontend",
+    image:
+      "https://lh3.googleusercontent.com/proxy/rO3k6vhdYyR8vGi7wkqK6H4OA2r1h4EGf8j3U00NwmnFW3T3LrgLcjbhhiR3wuQV1fd6I4Zu2O4ePEi1AQmHuSbxpqk-DFea4x3Bh1mLOhmv9rWAqZwfSATWzJWz",
+  },
+  {
+    id: 3,
+    name: "Breathe",
+    about: "Meditation",
+    phase: 3,
+    link: "https://github.com/maifam/breathe_frontend",
+    image: "https://i.imgur.com/hAuKx3K.png",
+  },
+  {
+    id: 10,
+    name: "HomeStory",
+    about:
+      "A web app for storing info about furniture items you plan on purchasing in the future or simply just want to keep tabs of.",
+    phase: 3,
+    link: "https://homestory.netlify.app",
+    image: "./images/homestory.png",
+  },
+  {
+    id: 11,
+    name: "Locksley To Do",
+    about: "A todo list and calendar app",
+    phase: 4,
+    link: "https://www.locksleyr.com",
+    image: "./images/locksleyr.png",
+  },
+  {
+    id: 12,
+    name: "GamesRx",
+    about: "Game info and reviews",
+    phase: 4,
+    link: "https://gamesrx.netlify.app",
+    image: "./images/gamesrx.png",
+  },
+  {
+    id: 13,
+    name: "Alienwares",
+    about: "Etsy for aliens",
+    phase: 4,
+    link: "https://www.etsy.com/",
+    image: "https://via.placeholder.com/300",
+  },
+  {
+    id: 14,
+    name: "Zookeepr",
+    about: "Donate to endangered animals",
+    phase: 3,
+    link: null,
+    image: "https://via.placeholder.com/300",
+  },
+  {
+    id: 15,
+    name: "Reciplease",
+    about: "A recipe tracking app",
+    phase: 2,
+    link: "https://www.epicurious.com/",
+    image: "https://via.placeholder.com/300",
+  },
+  {
+    id: 16,
+    name: "Kibbles N Bitz",
+    about: "Tinder for dogs",
+    phase: 4,
+    link: null,
+    image: "https://via.placeholder.com/300",
+  },
+];
+
+export default projects;
