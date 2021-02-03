@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import ProjectItem from "./ProjectItem";
-// TODO: replace this with a fetch request (eventually)
-import projects from "../data/projects";
 
-function ProjectList() {
+function ProjectList({ projects }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [phase, setPhase] = useState("All");
 
