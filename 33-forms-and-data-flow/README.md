@@ -1,11 +1,35 @@
 # React Data Flow & Forms
 
+## DQ?
+
+- steps for building features! steps for navigating existing code!
+- getting the active class set up
+- knowing where to start!
+- flow of information - child to parent
+- component structure - using pre-existing components successfully
+
 ## Objectives
 
 ### React Data Flow
 
 - [ ] Draw a component hierarchy and describe the Flow of Information
-- [ ] Pass data up and down the component hierarchy with props and callbacks
+- [ ] Pass data up with callbacks, and down with props
+
+### Notes
+
+Building React features
+
+1. do we need state for this feature? if so, what and where?
+2. set up the initial state - what's a good initial value?
+3. set up component to render something based on state
+4. find a way to update state dynamically (based on user interaction)
+
+Using Inverse Data Flow
+
+1. define a event handler in the child component
+2. define a callback function in the parent component
+3. pass the callback function as a prop to the child
+4. call the callback in the event handler with whatever data we're sending up
 
 ### Forms
 
@@ -31,7 +55,7 @@
 - [ ] Handle submitting the form and update state in parent using inverse data flow
   - **Check for understanding**: [exercise](https://codesandbox.io/s/form-exercise-vpzpd?file=/src/App.js)
 
-## Forms
+## Using Forms
 
 ### HTML Forms
 
@@ -134,43 +158,6 @@ To make it a 2-way street wherein `state` can change the user's input, we add a
 </form>
 ```
 
-To keep our code dry, we can also refactor the `handleUsernameChange` and
-`handlePasswordChange` to a generic `handleChange`. To make this work, make sure
-the `name` attribute on each input matches its corresponding key in state:
-
-```js
-class CommentForm extends React.Component {
-  state = {
-    username: "",
-    comment: "",
-  };
-
-  handleChange = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value,
-    });
-  };
-
-  render() {
-    return (
-      <form>
-        <input
-          type="text"
-          name="username"
-          onChange={this.handleChange}
-          value={this.state.username}
-        />
-        <textarea
-          name="comment"
-          onChange={this.handleChange}
-          value={this.state.comment}
-        />
-      </form>
-    );
-  }
-}
-```
-
 ### Inverse Data Flow
 
 When the form actually submits, it's often helpful to pass the state from the form up to a parent component. Imagine we have an app like this:
@@ -184,30 +171,24 @@ CommentForm CommentCard
 When the user submits out the comment form, a new `CommentCard` should be rendered. The `CommentContainer` holds an array of comments in state, so it needs to be updated when a new comment is added. To achieve this, we need to pass down a _callback function_ from the `CommentContainer` to the `CommentForm` as a prop:
 
 ```js
-class CommentContainer extends React.Component {
-  state = {
-    comments: [],
-  };
+function CommentContainer() {
+  const [comments, setComments] = useState([])
 
-  renderCommentCards() {
-    return this.state.comments.map((comment) => (
-      <CommentCard comment={comment} />
-    ));
-  }
+  const commentCards = comments.map((comment, index) => (
+    <CommentCard key={index} comment={comment} />
+  ))
 
   // callback for adding a comment to state
-  handleCommentSubmit = (comment) => {
-    this.setState({
-      comments: [...this.state.comments, comment],
-    });
+  function addComment(newComment) {
+    setComments([...comments, comment]);
   };
 
   render() {
     return (
       <section>
-        {this.renderCommentCards()}
+        {commentCards}
         <hr />
-        <CommentForm handleCommentSubmit={this.handleCommentSubmit} />
+        <CommentForm onAddComment={addComment} />
       </section>
     );
   }
@@ -217,48 +198,34 @@ class CommentContainer extends React.Component {
 When the user submits the comment, we can use the `handleCommentSubmit` callback in the `onSubmit` event in the `CommentForm`:
 
 ```js
-class CommentForm extends React.Component {
-  state = {
-    username: "",
-    comment: "",
-  };
+function CommentForm({ onAddComment }) {
+  const [username, setUsername] = useState("");
+  const [comment, setComment] = useState("");
 
-  handleChange = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value,
-    });
-  };
-
-  handleSubmit = (event) => {
-    event.preventDefault(); // still need this!
-
-    // use the callback to pass state UP to the parent component
-    this.props.handleCommentSubmit(this.state);
-
-    // clear the form (reset state)
-    this.setState({
-      username: "",
-      comment: "",
-    });
-  };
-
-  render() {
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <input
-          type="text"
-          name="username"
-          onChange={this.handleChange}
-          value={this.state.username}
-        />
-        <textarea
-          name="comment"
-          onChange={this.handleChange}
-          value={this.state.comment}
-        />
-      </form>
-    );
+  function handleUsernameChange(event) {
+    setUsername(event.target.value);
   }
+
+  function handleCommentChange(event) {
+    setComment(event.target.value);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    const newComment = {
+      username,
+      comment,
+    };
+    onAddComment(newComment);
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input type="text" name="username" onChange={handleUsernameChange} />
+      <textarea name="comment" onChange={handleCommentChange} />
+      <button type="submit">Submit</button>
+    </form>
+  );
 }
 ```
 
@@ -266,9 +233,9 @@ class CommentForm extends React.Component {
 
 ```js
 // updating one object in an array
-handleUpdateCustomer = (id, name) => {
+const handleUpdateCustomer = (id, name) => {
   // use map to return a new array so we aren't mutating state
-  const updatedCustomers = this.state.customers.map((customer) => {
+  const updatedCustomers = customers.map((customer) => {
     // in the array, look for the object we want to update
     if (customer.id === id) {
       // if we find the object
@@ -282,7 +249,7 @@ handleUpdateCustomer = (id, name) => {
   });
 
   // set state with our updated array
-  this.setState({ customers: updatedCustomers });
+  setCustomers(updatedCustomers);
 };
 ```
 
