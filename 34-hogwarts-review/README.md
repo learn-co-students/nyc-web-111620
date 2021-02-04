@@ -1,5 +1,11 @@
 # Hogwarts: The React app for fans of prize-winning pigs
 
+## Notes
+
+- filtering/sorting!
+- making the component hierarchy and deciding where state lives
+- string keys!
+
 ## React Week 1 Project
 
 ## Deliverables
