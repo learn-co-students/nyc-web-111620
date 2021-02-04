@@ -1,4 +1,4 @@
-function Filter({ showGreased, setShowGreased }) {
+function Filter({ showGreased, setShowGreased, sortBy, setSortBy }) {
   return (
     <div>
       <label>
@@ -9,6 +9,11 @@ function Filter({ showGreased, setShowGreased }) {
           onChange={(e) => setShowGreased(e.target.checked)}
         />
       </label>
+
+      <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
+        <option value="name">Sort by name</option>
+        <option value="weight">Sort by weight</option>
+      </select>
     </div>
   );
 }
