@@ -9,9 +9,26 @@ function ProjectForm({ onAddProject }) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    const newProject = { name, about, phase, link, image };
+    const newProject = {
+      name,
+      about,
+      phase: parseInt(phase),
+      link,
+      image,
+    };
     // TODO: save to backend
-    onAddProject(newProject);
+    fetch("http://localhost:4000/projects", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newProject),
+    })
+      .then((r) => r.json())
+      .then((actualNewProject) => {
+        // update state with the response
+        onAddProject(actualNewProject);
+      });
   }
 
   return (

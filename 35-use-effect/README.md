@@ -2,7 +2,7 @@
 
 ## DQ Questions?
 
-## SWBATs
+## Objectives
 
 - [ ] Define a side effect in terms of React components
 - [ ] Use the `useEffect` hook to perform side effects
@@ -22,7 +22,36 @@
   - **Breakout Exercise**: implement `useEffect` in the `Clock` component [example](https://codesandbox.io/s/useeffect-clock-example-uwcd0?file=/src/Clock.js)
   - cleanup after component un-mounts
 
-## Side Effects
+## useEffect with Fetch
+
+Often, we'll want to load some data into our component from an external data
+source like an API. Here's how we can handle that behavior with `useEffect`.
+
+```js
+function App() {
+  const [animals, setAnimals] = useState([]);
+
+  useEffect(() => {
+    // this code will run AFTER the first time our component is rendered
+    fetch("http://localhost:4000/animals")
+      .then((r) => r.json())
+      .then((animalArray) => {
+        // setAnimals will RE-RENDER our component
+        setAnimals(animalArray);
+      });
+  }, []);
+  // second arg to useEffect: empty array
+  // only run this after the first render of this component
+
+  return (
+    <div>
+      <AnimalList animals={animals} />
+    </div>
+  );
+}
+```
+
+## useEffect in Depth
 
 In terms of a React component, the **main effect** of the component is to return
 some JSX. One of the first rules we learned about function components is that

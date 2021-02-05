@@ -1,6 +1,4 @@
-import React, { useState } from "react";
-
-const API_URL = `https://pokeapi.co/api/v2/pokemon/charmander`;
+import React, { useEffect, useState } from "react";
 
 function PokeSearch() {
   const [pokemon, setPokemon] = useState(null);
@@ -9,6 +7,14 @@ function PokeSearch() {
   // TODO: fetch pokemon when the component loads
   // TODO: fetch pokemon when the query changes
 
+  useEffect(() => {
+    console.log("useEffect run");
+    fetch(`https://pokeapi.co/api/v2/pokemon/${query}`)
+      .then((r) => r.json())
+      .then((pokeObj) => setPokemon(pokeObj));
+  }, [query]);
+
+  console.log("component render");
   console.log("query:", query);
 
   return (
