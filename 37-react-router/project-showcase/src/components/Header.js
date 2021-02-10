@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 function Header({
   title,
@@ -27,12 +28,12 @@ function Header({
         {title}
       </h1>
       <nav>
-        <a className="button" href="/projects">
+        <NavLink to="/projects" exact className="button">
           All Projects
-        </a>
-        <a className="button" href="/projects/new">
+        </NavLink>
+        <NavLink to="/projects/new" exact className="button">
           Add Project
-        </a>
+        </NavLink>
         {currentUser ? (
           <button onClick={logout}>Logout</button>
         ) : (

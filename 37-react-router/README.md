@@ -26,11 +26,31 @@
 
 ## SPAs
 
+- "/": home
+- "/projects/new": project form
+- "/projects": project list
+- "/projects/:id": project details
+  - "/kibbles-n-bits" - bonus!
+
 ### Frontend Routes
 
 ### Benefits
 
+- less html to write! don't need multiple pages
+  - put multiple pages together more easily (composing components)
+- no redirect/reload, it makes our app faster and more responsive (after the initial load)
+- async vs sync - can have code run in the background to load some code
+
 ### Challenges
+
+- less structure: more freedom, but more decisions for us to make
+- longer initial load! (React Server Components)
+- language barrier - communicating between frontend/backend; keeping multiple languages in mind
+- having different URLs for our pages
+  - analytics
+  - bookmarks!
+  - back button!
+  - sharing links!
 
 ### Static vs Dynamic Routing
 

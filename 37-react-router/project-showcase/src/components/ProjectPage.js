@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 
-function ProjectDetail() {
+function ProjectPage() {
   const [claps, setClaps] = useState(0);
   const [project, setProject] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  const id = 1;
+  const { id } = useParams();
+
+  // const id = 2;
 
   useEffect(() => {
     fetch(`http://localhost:3000/projects/${id}`)
@@ -71,8 +74,11 @@ function ProjectDetail() {
           ))}
         </div>
       </div>
+      <Link to={`/projects/${parseInt(id) + 1}`} className="button">
+        Next
+      </Link>
     </section>
   );
 }
 
-export default ProjectDetail;
+export default ProjectPage;
