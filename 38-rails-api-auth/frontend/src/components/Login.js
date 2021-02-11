@@ -1,10 +1,15 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 function Login({ setCurrentUser }) {
   const [formData, setFormData] = useState({
     username: "",
     password: "",
   });
+  const [errors, setErrors] = useState([]);
+  const history = useHistory();
+
+  console.log(errors);
 
   function handleChange(e) {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -22,9 +27,19 @@ function Login({ setCurrentUser }) {
       body: JSON.stringify(formData),
     })
       .then((r) => r.json())
-      .then((user) => {
-        // use the response to set state
-        setCurrentUser(user);
+      .then((data) => {
+        if (data.errors) {
+          // set errors to show errors in the form
+          setErrors(data.errors);
+        } else {
+          // use the response to set state
+          const { user, token } = data;
+
+          localStorage.setItem("token", token);
+
+          setCurrentUser(user);
+          history.push("/profile");
+        }
       });
   }
 
@@ -46,6 +61,9 @@ function Login({ setCurrentUser }) {
           value={formData.password}
           onChange={handleChange}
         />
+        {errors.map((error) => {
+          return <p key={error}>{error}</p>;
+        })}
         <input type="submit" value="Login" />
       </form>
     </div>

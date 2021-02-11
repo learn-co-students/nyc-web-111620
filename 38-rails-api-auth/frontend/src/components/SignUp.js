@@ -1,12 +1,18 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 
-function SignUp() {
+function SignUp({ setCurrentUser }) {
   const [formData, setFormData] = useState({
     username: "",
     image: "",
     bio: "",
     password: "",
   });
+  const [errors, setErrors] = useState([]);
+
+  const history = useHistory();
+
+  console.log(errors);
 
   function handleChange(e) {
     setFormData({
@@ -17,7 +23,29 @@ function SignUp() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    // TODO: sign up as a new user
+    // POST /signup
+    fetch("http://localhost:3000/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((r) => r.json())
+      .then((data) => {
+        if (data.errors) {
+          // set errors to show errors in the form
+          setErrors(data.errors);
+        } else {
+          // use the response to set state
+          const { user, token } = data;
+
+          localStorage.setItem("token", token);
+
+          setCurrentUser(user);
+          history.push("/profile");
+        }
+      });
   }
 
   const { username, image, bio, password } = formData;
@@ -57,6 +85,9 @@ function SignUp() {
         onChange={handleChange}
       />
 
+      {errors.map((error) => {
+        return <p key={error}>{error}</p>;
+      })}
       <input type="submit" value="Signup" />
     </form>
   );

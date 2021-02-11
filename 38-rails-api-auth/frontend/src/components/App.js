@@ -12,12 +12,19 @@ function App() {
   useEffect(() => {
     // TODO: check if there'a token for the logged in user
     // GET /me
-    fetch("http://localhost:3000/me")
-      .then((r) => r.json())
-      .then((user) => {
-        // set the user in state
-        setCurrentUser(user);
-      });
+    const token = localStorage.getItem("token");
+    if (token) {
+      fetch("http://localhost:3000/me", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+        .then((r) => r.json())
+        .then((user) => {
+          // set the user in state
+          setCurrentUser(user);
+        });
+    }
   }, []);
 
   console.log(currentUser);
@@ -28,7 +35,7 @@ function App() {
       <main>
         <Switch>
           <Route path="/signup">
-            <SignUp />
+            <SignUp setCurrentUser={setCurrentUser} />
           </Route>
           <Route path="/login">
             <Login setCurrentUser={setCurrentUser} />
