@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Login() {
+function Login({ setCurrentUser }) {
   const [formData, setFormData] = useState({
     username: "",
     password: "",
@@ -13,6 +13,19 @@ function Login() {
   function handleSubmit(e) {
     e.preventDefault();
     // TODO: login the user
+    // POST /login
+    fetch("http://localhost:3000/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((r) => r.json())
+      .then((user) => {
+        // use the response to set state
+        setCurrentUser(user);
+      });
   }
 
   return (

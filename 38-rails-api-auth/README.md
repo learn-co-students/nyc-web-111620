@@ -15,7 +15,28 @@
   - send token in request
 - [ ] Store token in frontend
 
+## Outline
+
+- Part 1: Rails API set up
+  - implement fake auth
+- Part 2: implement real auth
+  - encrypted passwords
+  - JWT token
+- Part 3: optimizations
+  - have more efficient code
+  - easier methods to work with
+
 ## Auth Discussion
+
+- bcrypt / has_secure_password
+  - hashing/salting of password
+  - plaintext => password_digest in db
+- login / signup / logout (only on frontend)
+
+- session / cookies
+- API: JWT token
+  - save the token in the browser
+  - send it with every request
 
 ## Rails Setup
 
