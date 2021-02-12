@@ -15,8 +15,6 @@
   - send token in request
 - [ ] Store token in frontend
 
-## Outline
-
 - Part 1: Rails API set up
   - implement fake auth
 - Part 2: implement real auth

@@ -3,7 +3,6 @@ class UsersController < ApplicationController
 
   # POST /login
   def login
-    # TODO: get the username and password from the params
     # lookup a user with their username and password
     user = User.find_by(username: params[:username])
     if user && user.authenticate(params[:password])

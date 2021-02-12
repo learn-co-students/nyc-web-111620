@@ -17,10 +17,12 @@ function Profile({ currentUser, setCurrentUser }) {
     e.preventDefault();
 
     // PATCH /me { image, bio }
+    const token = localStorage.getItem("token");
     fetch("http://localhost:3000/me", {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(formData),
     })

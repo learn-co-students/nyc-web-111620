@@ -9,8 +9,9 @@ class ApplicationController < ActionController::API
     payload = JWT.decode(token, 'mysecret', true, { algorithm: 'HS256' })[0]
     # get the current user from the decoded payload
     @current_user = User.find_by(id: payload["user_id"])
-
-    # TODO: what if this goes wrong?
+  rescue
+    # if anything goes wrong, send an unauthorized status back
+    render json: { errors: ["Not authorized"] }, status: :unauthorized
     
     # fake auth byebye
     # @current_user = User.first

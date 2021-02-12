@@ -31,7 +31,7 @@ function App() {
 
   return (
     <>
-      <NavBar currentUser={currentUser} />
+      <NavBar currentUser={currentUser} setCurrentUser={setCurrentUser} />
       <main>
         <Switch>
           <Route path="/signup">
@@ -41,10 +41,14 @@ function App() {
             <Login setCurrentUser={setCurrentUser} />
           </Route>
           <Route path="/profile">
-            <Profile
-              currentUser={currentUser}
-              setCurrentUser={setCurrentUser}
-            />
+            {currentUser ? (
+              <Profile
+                currentUser={currentUser}
+                setCurrentUser={setCurrentUser}
+              />
+            ) : (
+              <h1>Protected Resource</h1>
+            )}
           </Route>
           <Route path="/">
             {currentUser ? (
