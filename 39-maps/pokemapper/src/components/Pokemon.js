@@ -1,9 +1,11 @@
 import React from "react";
 
-function Pokemon({ pokemon }) {
+function Pokemon({ pokemon, index, setSelectedPokemonIndex }) {
+  console.log(pokemon);
+
   const { name, sprites, stats } = pokemon;
   return (
-    <div className="Pokemon">
+    <div className="Pokemon" onClick={() => setSelectedPokemonIndex(index)}>
       <div className="images">
         {sprites.front_default && (
           <img src={sprites.front_default} alt={`${name} front sprite`} />
