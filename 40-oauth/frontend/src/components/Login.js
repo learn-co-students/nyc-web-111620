@@ -63,6 +63,7 @@ function Login({ setCurrentUser }) {
           return <p key={error}>{error}</p>;
         })}
         <input type="submit" value="Login" />
+        <a href="http://localhost:3000/login/spotify">Login with spotify</a>
       </form>
     </div>
   );

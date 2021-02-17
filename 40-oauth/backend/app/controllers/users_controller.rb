@@ -1,6 +1,63 @@
 class UsersController < ApplicationController
   before_action :authenticate, only: [:show, :update]
 
+  def spotify_redirect
+    query_params = {
+      client_id: ENV["SPOTIFY_CLIENT_ID"],
+      response_type: "code",
+      redirect_uri: ENV["SPOTIFY_REDIRECT_URI"],
+      scopes: "user-read-email user-read-private"
+    }.to_query
+
+    redirect_to "https://accounts.spotify.com/authorize?#{query_params}"
+  end
+
+  # ?code=asdasdas89798ausjkdnasdas7687678
+  def spotify_callback
+    code = params[:code]
+    # exchange the code with Spotify for an Access Token
+    body = {
+      grant_type: "authorization_code",
+      code: code,
+      redirect_uri: ENV["SPOTIFY_REDIRECT_URI"],
+      client_id: ENV["SPOTIFY_CLIENT_ID"],
+      client_secret: ENV["SPOTIFY_CLIENT_SECRET"]
+    }
+    token_response = RestClient.post("https://accounts.spotify.com/api/token", body)
+    token_data = JSON.parse(token_response)
+    # token_data has the access token in it
+
+    # now we can use that token to interact with the API on behalf of the user
+    user_response = RestClient.get("https://api.spotify.com/v1/me", {
+      Authorization: "Bearer #{token_data["access_token"]}"
+    })
+    user_data = JSON.parse(user_response)
+
+    # create (or find) a user and save their credentials/user info
+    user = User.find_by(spotify_id: user_data["id"])
+    if user.nil?
+      user = User.create(
+        spotify_id: user_data["id"],
+        password: SecureRandom.hex(15),
+        username: user_data["display_name"]
+      )
+    end
+
+    user.update(
+      access_token: token_data["access_token"],
+      scope: token_data["scope"],
+      refresh_token: token_data["refresh_token"],
+      # exires_at: current time + how ever many seconds the token expires in
+      expires_at: DateTime.now + token_data["expires_in"].seconds
+    )
+
+    # OUR JWT token to authenticate the user next time, and look their data up in the database
+    token = JWT.encode({ user_id: user.id }, 'mysecret', 'HS256')
+
+    # render json: { user: UserSerializer.new(user), token: token }
+    redirect_to "#{ENV["CLIENT_BASE_URL"]}/spotify/#{token}"
+  end
+
   # POST /login
   def login
     # lookup a user with their username and password
@@ -32,24 +89,16 @@ class UsersController < ApplicationController
   # GET /me
   # authenticate
   def show
-
-    # stub (fake auth)
     render json: @current_user
   end
 
   # PATCH /me
   # authenticate
   def update
-    # user_params = params.permit(:bio, :image)
-    # user.update(user_params)
     @current_user.update(bio: params[:bio], image: params[:image])
 
     render json: @current_user
   end
-
-  # def create
-  #   @current_user.photos.create(img_url: params[:img_url])
-  # end
 
   private
   

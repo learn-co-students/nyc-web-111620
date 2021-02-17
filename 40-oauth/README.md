@@ -6,6 +6,12 @@
 - [ ] Visualize OAuth flow
 - [ ] Implement OAuth in a React-Rails application
 
+## Notes
+
+- general help working with APIs
+  - when do we save data to our DB? (is that data related to some model in data?)
+- general knowledge
+
 ## What is OAuth?
 
 OAuth, short for "Open Authorization", is a standardized way of authorizing
@@ -35,13 +41,14 @@ Based on the way our application is architected, we need to pick the right grant
 flow for us. Here's a rundown of each common grant flow, and when you can use them:
 
 - **Authorization Code Grant Flow**: In order to use this grant flow, we need to have
-  a server where we can keep a special **client secret** code. For a single-page
+  a server where we can keep a special client secret code. For a single-page
   application with a separate API server, this is the flow we can use.
 - **Authorization Code Grant Flow With Proof Key for Code Exchange (PKCE)**: for
-  applications where we can't safely store a **client secret**, this is the recommended
-  flow. Use this if you have a frontend-only application (no secure server).
+  applications where we can't safely store a client secret, this is the
+  recommended flow. Use this if you have a frontend-only application (no secure
+  server).
 - **Implicit Grant**: a simplified flow that also doesn't involve using a
-  **client secret**. This is no longer recommended due to security risks; use
+  client secret. This is no longer recommended due to security risks; use
   the PKCE flow instead.
 - **Client Credentials Grant**: used for server-to-server communication, where
   you don't need access to user-specific resources.
@@ -353,3 +360,8 @@ def refresh_access_token!
   )
 end
 ```
+
+## Resources
+
+- [What is OAuth 2?](https://auth0.com/intro-to-iam/what-is-oauth-2/)
+- [Spotify Authorization Guide](https://developer.spotify.com/documentation/general/guides/authorization-guide/)

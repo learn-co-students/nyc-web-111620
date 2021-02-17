@@ -4,6 +4,7 @@ import SignUp from "./SignUp";
 import Login from "./Login";
 import NavBar from "./NavBar";
 import Profile from "./Profile";
+import SpotifyLogin from "./SpotifyLogin";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -34,6 +35,9 @@ function App() {
       <NavBar currentUser={currentUser} setCurrentUser={setCurrentUser} />
       <main>
         <Switch>
+          <Route path="/spotify/:token">
+            <SpotifyLogin setCurrentUser={setCurrentUser} />
+          </Route>
           <Route path="/signup">
             <SignUp setCurrentUser={setCurrentUser} />
           </Route>
